@@ -190,6 +190,10 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
         'Ehesp\SteamLogin\Laravel\SteamLoginServiceProvider',
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        'MaddHatter\LaravelFullcalendar\ServiceProvider',
+        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+        'Aloha\Twilio\Support\Laravel\ServiceProvider',
 
         /*
          * Has to override the Collective\Html\HtmlServiceProvider form singleton
@@ -252,6 +256,7 @@ return [
         'Html'        => Collective\Html\HtmlFacade::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
         'SteamLogin' => 'Ehesp\SteamLogin\Laravel\Facades\SteamLogin',
+        'Calendar' => 'MaddHatter\LaravelFullcalendar\Facades\Calendar',
     ],
 
 ];

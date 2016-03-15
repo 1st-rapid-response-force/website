@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+@extends('frontend.layouts.home')
 
 @section('jumbotron')
         <!-- Slider start -->

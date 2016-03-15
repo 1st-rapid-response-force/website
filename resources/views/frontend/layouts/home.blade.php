@@ -22,26 +22,16 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
     </head>
     <body>
+        @yield('jumbotron')
         @include('frontend.includes.nav')
 
         <div style="padding-top: 65px";></div>
         <div class="container">
             @include('includes.partials.messages')
             @yield('breadcrumbs')
-            <div class="row">
-                <div class="col-lg-8">
-                    @yield('content')
-                </div>
-                <div class="col-lg-4">
-                    @yield('sidebar')
-                    @include('frontend.includes.sidebar')
-                </div>
-
-            </div>
-
-
+            @yield('content')
         </div><!-- container -->
-        <div style="padding-bottom: 60px";></div>
+        <div style="padding-bottom: 40px";></div>
 
         @include('frontend.includes.footer')
 

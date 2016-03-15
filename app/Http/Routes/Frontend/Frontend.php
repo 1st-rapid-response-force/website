@@ -11,7 +11,10 @@ Route::get('structure-assignments', 'FrontendController@structure')->name('front
 Route::get('apply', 'FrontendController@apply')->name('frontend.apply');
 Route::get('faq', 'FrontendController@faq')->name('frontend.faq');
 Route::get('contact', 'FrontendController@contact')->name('frontend.contact');
-Route::get('macros', 'FrontendController@macros')->name('frontend.macros');
+
+//Steam Route
+Route::get('login/validate/steam', 'SteamController@confirmLogin')
+    ->name('steam.validate');
 
 /**
  * These frontend controllers require the user to be logged in
@@ -22,4 +25,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('profile/edit', 'ProfileController@edit')->name('frontend.user.profile.edit');
         Route::patch('profile/update', 'ProfileController@update')->name('frontend.user.profile.update');
     });
+
+
 });

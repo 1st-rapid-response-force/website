@@ -8,7 +8,6 @@
 @endsection
 
 @section('content')
-    <div class="container">
         <h1>Servers</h1>
         <p>List of our servers:</p>
         <h2>Voice</h2>
@@ -68,7 +67,6 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection
 
 @section('after-scripts-end')
