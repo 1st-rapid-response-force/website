@@ -21,14 +21,19 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
     </head>
-    <body id="app-layout">
-
+    <body>
+        @yield('jumbotron')
         @include('frontend.includes.nav')
 
+        <div style="padding-top: 65px";></div>
         <div class="container">
             @include('includes.partials.messages')
+            @yield('breadcrumbs')
             @yield('content')
         </div><!-- container -->
+        <div style="padding-bottom: 40px";></div>
+
+        @include('frontend.includes.footer')
 
         <!-- JavaScripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

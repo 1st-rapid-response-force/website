@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
 
@@ -20,28 +20,28 @@
 
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li>{!! link_to_route('frontend.index', trans('navs.frontend.home')) !!}</li>
-                <li>{!! link_to_route('frontend.macros', trans('navs.frontend.macros')) !!}</li>
+                <li class="{{ Active::pattern('/') }}">{!! link_to_route('frontend.index', trans('navs.frontend.home')) !!}</li>
+                <li class="{{ Active::pattern('about') }}">{!! link_to_route('frontend.about', 'About') !!}</li>
+
+                <li class="dropdown {{ Active::pattern('servers') }} {{ Active::pattern('modpack') }}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Servers<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>{!! link_to_route('frontend.servers', 'Servers') !!}</li>
+                        <li>{!! link_to_route('frontend.modpack', 'Modpack') !!}</li>
+                    </ul>
+                </li>
+                <li class="{{ Active::pattern('structure-assignments') }}">{!! link_to_route('frontend.structure_assignments', 'Structure & Assignments') !!}</li>
+                <li class="{{ Active::pattern('apply') }}">{!! link_to_route('frontend.apply', 'Apply') !!}</li>
+                <li class="{{ Active::pattern('faq') }}">{!! link_to_route('frontend.faq', 'FAQ') !!}</li>
+                <li class="{{ Active::pattern('contact') }}">{!! link_to_route('frontend.contact', 'Contact') !!}</li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
 
-                @if (config('locale.status') && count(config('locale.languages')) > 1)
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ trans('menus.language-picker.language') }}
-                            <span class="caret"></span>
-                        </a>
-
-                        @include('includes.partials.lang')
-                    </li>
-                @endif
-
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li>{!! link_to('login', trans('navs.frontend.login')) !!}</li>
-                    <li>{!! link_to('register', trans('navs.frontend.register')) !!}</li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

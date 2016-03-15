@@ -22,7 +22,7 @@ return [
 	|
 	| The application name for use within the UI of the application
 	*/
-    'name' => 'Laravel 5 Bootstrap',
+    'name' => '1st Rapid Response Force',
 
     /*
     |--------------------------------------------------------------------------
@@ -189,6 +189,7 @@ return [
         HieuLe\Active\ActiveServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
+        'Ehesp\SteamLogin\Laravel\SteamLoginServiceProvider',
 
         /*
          * Has to override the Collective\Html\HtmlServiceProvider form singleton
@@ -250,6 +251,7 @@ return [
         'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Html'        => Collective\Html\HtmlFacade::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
+        'SteamLogin' => 'Ehesp\SteamLogin\Laravel\Facades\SteamLogin',
     ],
 
 ];

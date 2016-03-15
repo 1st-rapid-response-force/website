@@ -25,6 +25,10 @@ Route::group(['namespace' => 'Auth'], function () {
             ->name('auth.login');
         Route::post('login', 'AuthController@login');
 
+        //Steam Route
+        Route::get('validate/steam', 'AuthController@confirmSteam')
+            ->name('auth.login');
+
         // Socialite Routes
         Route::get('login/{provider}', 'AuthController@loginThirdParty')
             ->name('auth.provider');

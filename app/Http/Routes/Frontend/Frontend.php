@@ -4,6 +4,13 @@
  * Frontend Controllers
  */
 Route::get('/', 'FrontendController@index')->name('frontend.index');
+Route::get('about', 'FrontendController@about')->name('frontend.about');
+Route::get('servers', 'FrontendController@servers')->name('frontend.servers');
+Route::get('modpack', 'FrontendController@modpack')->name('frontend.modpack');
+Route::get('structure-assignments', 'FrontendController@structure')->name('frontend.structure_assignments');
+Route::get('apply', 'FrontendController@apply')->name('frontend.apply');
+Route::get('faq', 'FrontendController@faq')->name('frontend.faq');
+Route::get('contact', 'FrontendController@contact')->name('frontend.contact');
 Route::get('macros', 'FrontendController@macros')->name('frontend.macros');
 
 /**
