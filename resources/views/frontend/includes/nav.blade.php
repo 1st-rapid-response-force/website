@@ -51,10 +51,6 @@
                         <ul class="dropdown-menu" role="menu">
                             <li>{!! link_to_route('frontend.user.dashboard', trans('navs.frontend.dashboard')) !!}</li>
 
-                            @if (access()->user()->canChangePassword())
-                                <li>{!! link_to_route('auth.password.change', trans('navs.frontend.user.change_password')) !!}</li>
-                            @endif
-
                             @permission('view-backend')
                                 <li>{!! link_to_route('admin.dashboard', trans('navs.frontend.user.administration')) !!}</li>
                             @endauth

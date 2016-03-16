@@ -16,7 +16,9 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->bigInteger('steam_id')->unique();
+            $table->unsignedInteger('steam_id')->nullable();
+            $table->unsignedInteger('application_id')->nullable();
+            $table->unsignedInteger('file_id')->nullable();
             $table->string('password', 60)->nullable();
             $table->string('confirmation_code');
             $table->boolean('confirmed')->default(config('access.users.confirm_email') ? false : true);
@@ -24,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at');
             $table->softDeletes();
+
         });
     }
 

@@ -1,4 +1,4 @@
-@extends('frontend.layouts.home')
+@extends('frontend.layouts.master-nsb')
 
 @section('content')
 

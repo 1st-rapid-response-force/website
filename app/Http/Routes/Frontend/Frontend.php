@@ -15,6 +15,8 @@ Route::get('contact', 'FrontendController@contact')->name('frontend.contact');
 //Steam Route
 Route::get('login/validate/steam', 'SteamController@confirmLogin')
     ->name('steam.validate');
+Route::post('register/steam', 'SteamController@postRegister')
+    ->name('steam.register');
 
 /**
  * These frontend controllers require the user to be logged in

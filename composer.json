@@ -1,7 +1,7 @@
 {
-    "name": "rappasoft/laravel-5-boilerplate",
-    "description": "The Laravel Framework Boilerplate Project.",
-    "keywords": ["framework", "laravel", "boilerplate"],
+    "name": "1st-rapid-response-force/website",
+    "description": "The 1st RRF Website.",
+    "keywords": ["website", "catalyst", "milsim","unit-management"],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -23,7 +23,9 @@
         "spatie/laravel-medialibrary": "^3.16",
         "maddhatter/laravel-fullcalendar": "^1.2",
         "planetteamspeak/ts3-php-framework": "^1.1",
-        "aloha/twilio": "^2.0"
+        "aloha/twilio": "^2.0",
+        "edvinaskrucas/notification": "5.*",
+        "syntax/steam-api": "2.0.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

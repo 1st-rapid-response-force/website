@@ -17,6 +17,7 @@ class User extends Authenticatable
 
     use SoftDeletes, UserAccess, UserAttribute, UserRelationship;
 
+
     /**
      * The attributes that are not mass assignable.
      *
@@ -35,4 +36,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function steam()
+    {
+        return $this->hasOne('App\Models\Access\User\Steam');
+    }
+
+    public function application()
+    {
+        return $this->hasOne('App\Models\Access\User\Application');
+    }
 }

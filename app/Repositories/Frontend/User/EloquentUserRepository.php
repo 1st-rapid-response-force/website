@@ -3,6 +3,7 @@
 namespace App\Repositories\Frontend\User;
 
 use App\Models\Access\User\User;
+use App\Repositories\Frontend\User\Steam\SteamContract;
 use Illuminate\Support\Facades\Mail;
 use App\Exceptions\GeneralException;
 use Illuminate\Support\Facades\Hash;
@@ -21,12 +22,16 @@ class EloquentUserRepository implements UserContract
      */
     protected $role;
 
+
+    protected $steam;
+
     /**
      * @param RoleRepositoryContract $role
      */
-    public function __construct(RoleRepositoryContract $role)
+    public function __construct(RoleRepositoryContract $role, SteamContract $steam)
     {
         $this->role = $role;
+        $this->steam = $steam;
     }
 
     /**
@@ -83,14 +88,23 @@ class EloquentUserRepository implements UserContract
             ]);
         } else {
             $user = User::create([
-                'name' => $data['name'],
+                'name' => 'User',
                 'email' => $data['email'],
-                'password' => bcrypt($data['password']),
+                'password' => bcrypt(str_random(32)),
                 'confirmation_code' => md5(uniqid(mt_rand(), true)),
                 'confirmed' => config('access.users.confirm_email') ? 0 : 1,
                 'status' => 1,
             ]);
         }
+
+        /**
+         * Add the new steam object for user
+         */
+        $steam = $this->steam->create($user,$data['steam_id']);
+        $this->steam->checkVAC($user);
+        $this->steam->checkARMA($user);
+        $user->steam_id = $steam->id;
+        $user->save();
 
         /**
          * Add the default site role to the new user

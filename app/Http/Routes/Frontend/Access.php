@@ -23,16 +23,6 @@ Route::group(['namespace' => 'Auth'], function () {
         // Authentication Routes
         Route::get('login', 'AuthController@showLoginForm')
             ->name('auth.login');
-        Route::post('login', 'AuthController@login');
-
-        // Socialite Routes
-        Route::get('login/{provider}', 'AuthController@loginThirdParty')
-            ->name('auth.provider');
-
-        // Registration Routes
-        Route::get('register', 'AuthController@showRegistrationForm')
-            ->name('auth.register');
-        Route::post('register', 'AuthController@register');
 
         // Confirm Account Routes
         Route::get('account/confirm/{token}', 'AuthController@confirmAccount')

@@ -30,7 +30,7 @@ class UserTableSeeder extends Seeder
                 'name'              => 'Guillermo Rodriguez',
                 'email'             => 'rodriguez.g@1st-rrf.com',
                 'password'          => bcrypt(str_random(32)),
-                'steam_id'          => '76561198011615406',
+                'steam_id'          => '1',
                 'confirmation_code' => md5(uniqid(mt_rand(), true)),
                 'confirmed'         => true,
                 'created_at'        => Carbon::now(),
@@ -40,7 +40,7 @@ class UserTableSeeder extends Seeder
                 'name'              => 'Alexander Striker',
                 'email'             => 'striker.a@1st-rrf.com',
                 'password'          => bcrypt(str_random(32)),
-                'steam_id'          => '76561198021531457',
+                'steam_id'          => '2',
                 'confirmation_code' => md5(uniqid(mt_rand(), true)),
                 'confirmed'         => true,
                 'created_at'        => Carbon::now(),
@@ -48,7 +48,23 @@ class UserTableSeeder extends Seeder
             ],
         ];
 
+        $steams = [
+            [
+                'user_id'           => 1,
+                'steam_id'          => '76561198011615406',
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now(),
+            ],
+            [
+                'user_id'           => 2,
+                'steam_id'          => '76561198021531457',
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now(),
+            ]
+        ];
+
         DB::table(config('access.users_table'))->insert($users);
+        DB::table('steams')->insert($steams);
 
         if (env('DB_CONNECTION') == 'mysql') {
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');

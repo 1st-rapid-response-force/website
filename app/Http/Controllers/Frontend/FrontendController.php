@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Access\User\User;
+use App\Models\File\Rank;
+use App\Repositories\Frontend\User\Steam\SteamContract;
 
 /**
  * Class FrontendController
@@ -11,6 +13,13 @@ use App\Models\Access\User\User;
  */
 class FrontendController extends Controller
 {
+    protected $steam;
+
+    public function __construct(SteamContract $steam)
+    {
+        $this->steam = $steam;
+    }
+
     /**
      * @return \Illuminate\View\View
      */
@@ -50,7 +59,14 @@ class FrontendController extends Controller
      */
     public function structure()
     {
-        return view('frontend.structure');
+        $enlistedRanks = Rank::whereIn('id', array(2,3,4,5,6,7,8,9,10,11,12,13))->get();
+        $warrantRanks = Rank::whereIn('id', array(14,15,16,17,18))->get();
+        $officerRanks = Rank::whereIn('id', array(19,20,21,22,23,24))->get();
+        return view('frontend.structure')
+            ->with('enlistedRanks',$enlistedRanks)
+            ->with('warrantRanks',$warrantRanks)
+            ->with('officerRanks',$officerRanks);
+
     }
 
     /**
@@ -58,7 +74,27 @@ class FrontendController extends Controller
      */
     public function apply()
     {
-        return view('frontend.apply');
+        $user = \Auth::User();
+        $eligible = collect();
+
+        if(\Auth::check())
+        {
+            if($user->steam->vac_ban)
+            {
+                $eligible->push('vac_ban');
+            } else {
+                $eligible->push('no_vac_ban');
+            }
+
+            if(!$user->steam->arma3)
+            {
+                $eligible->push('arma3');
+            } else {
+                $eligible->push('owns_arma3');
+            }
+
+        }
+        return view('frontend.apply')->with('eligible',$eligible);
     }
 
     /**

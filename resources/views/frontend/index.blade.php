@@ -1,4 +1,4 @@
-@extends('frontend.layouts.home')
+@extends('frontend.layouts.master-nsb')
 
 @section('jumbotron')
         <!-- Slider start -->
@@ -15,7 +15,7 @@
         <div class="hero-content text-center">
             <div class="hero-text wow fadeIn" data-wow-delay=".8s">
                 <h3 class="hero-title"><span>1st Rapid Response Force</span></h3>
-                <p class="hero-description">Military Simulation at its finest.<br> <a href="#" class="btn btn-primary">Enlist now!</a> </p>
+                <p class="hero-description">Military Simulation at its finest.<br> <a href="{{route('frontend.apply')}}" class="btn btn-primary">Apply Today!</a> </p>
                 <br/><br/><br/>
             </div><!--/ Hero text end -->
         </div><!--/ Hero content end -->

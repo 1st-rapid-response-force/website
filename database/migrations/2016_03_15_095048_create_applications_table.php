@@ -45,8 +45,12 @@ class CreateApplicationsTable extends Migration
             $table->timestamp('decision_date');
             $table->timestamps();
             $table->softDeletes();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+        });
+
+        Schema::table('users', function ($table) {
+            $table->foreign('application_id')->references('user_id')->on('applications')->onDelete('set null');
         });
     }
 
@@ -57,6 +61,9 @@ class CreateApplicationsTable extends Migration
      */
     public function down()
     {
+        Schema::table('users', function ($table) {
+            $table->dropForeign('users_application_id_foreign');
+        });
         Schema::drop('applications');
     }
 }

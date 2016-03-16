@@ -194,6 +194,8 @@ return [
         'MaddHatter\LaravelFullcalendar\ServiceProvider',
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         'Aloha\Twilio\Support\Laravel\ServiceProvider',
+        Krucas\Notification\NotificationServiceProvider::class,
+        'Syntax\SteamApi\SteamApiServiceProvider',
 
         /*
          * Has to override the Collective\Html\HtmlServiceProvider form singleton
@@ -257,6 +259,7 @@ return [
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
         'SteamLogin' => 'Ehesp\SteamLogin\Laravel\Facades\SteamLogin',
         'Calendar' => 'MaddHatter\LaravelFullcalendar\Facades\Calendar',
+        'Notification' => Krucas\Notification\Facades\Notification::class,
     ],
 
 ];

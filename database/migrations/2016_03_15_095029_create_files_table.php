@@ -30,8 +30,11 @@ class CreateFilesTable extends Migration
             $table->string('oncall_type')->nullable();
             $table->timestamps();
             $table->softDeletes();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
+
+        Schema::table('users', function ($table) {
+            $table->foreign('file_id')->references('user_id')->on('files')->onDelete('set null');
         });
     }
 
@@ -42,6 +45,10 @@ class CreateFilesTable extends Migration
      */
     public function down()
     {
+        Schema::table('users', function ($table) {
+            $table->dropForeign('users_file_id_foreign');
+        });
         Schema::drop('files');
+
     }
 }
