@@ -42,5 +42,15 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Frontend\User\Steam\SteamContract::class,
             \App\Repositories\Frontend\User\Steam\EloquentSteamRepository::class
         );
+
+        $this->app->bind(
+            \App\Repositories\Frontend\User\ApplicationContract::class,
+            \App\Repositories\Frontend\User\EloquentApplicationRepository::class
+        );
+
+        $this->app->bind(
+            \App\Repositories\Frontend\File\FileContract::class,
+            \App\Repositories\Frontend\User\EloquentFileRepository::class
+        );
     }
 }

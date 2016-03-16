@@ -23,10 +23,17 @@
                 <div id="FAQOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel-body">
                         <h5>Membership Criteria</h5>
-                        <ul class="no-list-style">
+                        <ul>
+                            <li>
+                                Members must own a legal copy of ARMA 3 and expansions.
+                            </li>
+                            <li>
+                                Members must have a clean Steam VAC and BattlEye Record
+                            </li>
                             <li>Members must be over the age of 18.</li>
                             <li>Members will be required to be citizens of a NATO member country to partake.</li>
-                            <li>Members will need to be able to commit to a weekly operations and training schedule</li>
+                            <li>Members will need to be able to commit to a weekly operations and training schedule.</li>
+                            <li>Members will need speak english in order to properly communicate with the unit.</li>
                         </ul>
                     </div>
                 </div>

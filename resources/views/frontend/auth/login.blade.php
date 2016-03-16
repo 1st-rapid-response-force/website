@@ -13,6 +13,8 @@
                     <p>If you do not have an account with us, you will be redirected to a registration page, once your steam id is validated.</p>
                     <div class="text-center">
                         <a href="{{SteamLogin::url(url()->full().'/validate/steam')}}"><img src="/images/steam.png"></a>
+                        <hr>
+                        <img src="/images/patch_small.png" style="max-height: 250px">
                     </div>
                 </div><!-- panel body -->
 
