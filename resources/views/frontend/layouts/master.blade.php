@@ -26,6 +26,7 @@
 
         <div style="padding-top: 65px";></div>
         <div class="container">
+            {!! Notification::showAll() !!}
             @include('includes.partials.messages')
             @yield('breadcrumbs')
             <div class="row">
