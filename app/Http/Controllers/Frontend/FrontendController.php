@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Access\User\User;
 use App\Models\File\Rank;
+use App\Models\Site\faq;
 use App\Repositories\Frontend\User\Steam\SteamContract;
 
 /**
@@ -81,16 +82,16 @@ class FrontendController extends Controller
         {
             if($user->steam->vac_ban)
             {
-                $eligible->push('vac_ban');
+                $eligible->push('has_vac_ban');
             } else {
                 $eligible->push('no_vac_ban');
             }
 
-            if(!$user->steam->arma3)
+            if($user->steam->arma3)
             {
-                $eligible->push('arma3');
-            } else {
                 $eligible->push('owns_arma3');
+            } else {
+                $eligible->push('no_arma3');
             }
 
         }
@@ -102,7 +103,9 @@ class FrontendController extends Controller
      */
     public function faq()
     {
-        return view('frontend.faq');
+        $faqs = faq::published()->get();
+        return view('frontend.faq')
+            ->with('faqs',$faqs);
     }
 
     /**

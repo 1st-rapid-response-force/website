@@ -2,8 +2,6 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
  mix
-     .phpUnit()
-
     /**
      * Copy needed files from /node directories
      * to /public directory.
@@ -41,6 +39,7 @@ elixir(function(mix) {
       */
      .scripts([
         'plugin/sweetalert/sweetalert.min.js',
+        'plugin/bootstrap-validator/validator.min.js',
         'plugins.js',
         'frontend/app.js'
      ], 'public/js/frontend.js')
@@ -66,6 +65,7 @@ elixir(function(mix) {
       */
      .scripts([
          'plugin/sweetalert/sweetalert.min.js',
+         'plugin/bootstrap-validator/validator.min.js',
          'plugins.js',
          'backend/app.js',
          'backend/plugin/toastr/toastr.min.js',

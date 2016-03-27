@@ -42,6 +42,7 @@
 
             <!-- Main content -->
             <section class="content">
+                {!! Notification::showAll() !!}
                 @include('includes.partials.messages')
                 @yield('content')
             </section><!-- /.content -->

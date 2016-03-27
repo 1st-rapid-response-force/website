@@ -35,15 +35,46 @@
                 <a href="{!! route('admin.dashboard') !!}"><span>{{ trans('menus.backend.sidebar.dashboard') }}</span></a>
             </li>
 
-            @permission('view-access-management')
-                <li class="{{ Active::pattern('admin/access/*') }}">
-                    <a href="{!!url('admin/access/users')!!}"><span>{{ trans('menus.backend.access.title') }}</span></a>
-                </li>
+            @permission('view-site-management')
+            <li class="{{ Active::pattern('admin/site*') }} treeview">
+                <a href="#">
+                    <span><i class="fa fa-file-text-o"></i> Site Management</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu {{ Active::pattern('admin/site*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/site*', 'display: block;') }}">
+                    <li class="{{ Active::pattern('admin/site/faq') }}">
+                        <a href="{!! url('admin/site/faq') !!}">FAQs</a>
+                    </li>
+                    <li class="{{ Active::pattern('admin/site/settings') }}">
+                        <a href="{!! url('admin/site/settings') !!}">Settings</a>
+                    </li>
+                </ul>
+            </li>
             @endauth
+
+            @permission('view-site-management')
+            <li class="{{ Active::pattern('admin/access*') }} treeview">
+                <a href="#">
+                    <span><i class="fa fa-users"></i> User Management</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu {{ Active::pattern('admin/access*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/access*', 'display: block;') }}">
+                    <li class="{{ Active::pattern('admin/access/users*') }}">
+                        <a href="{!!url('admin/access/users')!!}"><span>{{ trans('menus.backend.access.title') }}</span></a>
+                    </li>
+                    <li class="{{ Active::pattern('admin/access/applications*') }}">
+                        <a href="{!!url('admin/access/applications')!!}"><span>Applications Management</span></a>
+                    </li>
+                </ul>
+            </li>
+            @endauth
+
+
+
 
             <li class="{{ Active::pattern('admin/log-viewer*') }} treeview">
                 <a href="#">
-                    <span>{{ trans('menus.backend.log-viewer.main') }}</span>
+                    <span><i class="fa fa-cogs"></i> {{ trans('menus.backend.log-viewer.main') }}</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu {{ Active::pattern('admin/log-viewer*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/log-viewer*', 'display: block;') }}">

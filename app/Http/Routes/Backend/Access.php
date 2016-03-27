@@ -45,4 +45,13 @@ Route::group([
             Route::post('update-sort', 'PermissionGroupController@updateSort')->name('admin.access.roles.groups.update-sort');
         });
     });
+
+    /**
+     * Role Management
+     */
+    Route::group(['namespace' => 'Application'], function() {
+        Route::resource('applications', 'ApplicationController', ['except' => ['show','create','store']]);
+        Route::get('applications/declined', 'ApplicationController@index_declined')->name('admin.access.applications.index_declined');
+        Route::get('applications/accepted', 'ApplicationController@index_accepted')->name('admin.access.applications.index_accepted');
+    });
 });

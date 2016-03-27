@@ -20,22 +20,17 @@ use App\Models\Access\User\User;
 class EloquentApplicationRepository implements ApplicationContract
 {
     /**
-     * @param $id
-     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
-     */
-    public function find($id)
-    {
-        return Application::findOrFail($id);
-    }
-
-    /**
      * @param User $user
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Model
      */
     public function create(User $user, array $data)
     {
-         return $user->application()->create($data);
+        $input = collect($data);
+        $input->put('dob',\Carbon\Carbon::parse($input->get('dob')));
+        $application = $user->application()->create($input->all());
+        $user->application_id = $application->id;
+        return $application;
     }
 
     /**
@@ -47,18 +42,6 @@ class EloquentApplicationRepository implements ApplicationContract
     {
         $application = $this->find($id);
         return $application->update($input);
-    }
-
-    /**
-     * @param $id
-     * @return bool
-     * @throws \Exception
-     */
-    public function delete($id)
-    {
-        $application = $this->find($id);
-        $application->delete();
-        return true;
     }
 
 }

@@ -4,6 +4,10 @@ namespace App\Models\Access\User;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Steam
+ * @package App\Models\Access\User
+ */
 class Steam extends Model
 {
     /**
@@ -13,6 +17,9 @@ class Steam extends Model
      */
     protected $guarded = ['id'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo('App\Models\Access\User\User');

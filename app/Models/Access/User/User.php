@@ -37,11 +37,17 @@ class User extends Authenticatable
      */
     protected $dates = ['deleted_at'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function steam()
     {
         return $this->hasOne('App\Models\Access\User\Steam');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function application()
     {
         return $this->hasOne('App\Models\Access\User\Application');

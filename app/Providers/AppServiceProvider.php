@@ -49,8 +49,18 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
+            \App\Repositories\Backend\User\ApplicationContract::class,
+            \App\Repositories\Backend\User\EloquentApplicationRepository::class
+        );
+
+        $this->app->bind(
             \App\Repositories\Frontend\File\FileContract::class,
             \App\Repositories\Frontend\User\EloquentFileRepository::class
+        );
+
+        $this->app->bind(
+            \App\Repositories\Backend\Site\SiteContract::class,
+            \App\Repositories\Backend\Site\EloquentSiteRepository::class
         );
     }
 }

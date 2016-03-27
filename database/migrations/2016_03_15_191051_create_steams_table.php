@@ -15,7 +15,7 @@ class CreateSteamsTable extends Migration
         Schema::create('steams', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->bigInteger('steam_id');
+            $table->string('steam_id');
             $table->boolean('vac_ban')->default(false);
             $table->boolean('arma3')->default(true);
             $table->boolean('arma3_expansion')->default(true);

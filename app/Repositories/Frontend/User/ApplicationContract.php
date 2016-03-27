@@ -10,12 +10,6 @@ use App\Models\Access\User\User;
 interface ApplicationContract
 {
     /**
-     * @param $id
-     * @return mixed
-     */
-    public function find($id);
-
-    /**
      * @param User $user
      * @param array $data
      * @return mixed
@@ -28,12 +22,6 @@ interface ApplicationContract
      * @return mixed
      */
     public function update($id, $input);
-
-    /**
-     * @param $id
-     * @return mixed
-     */
-    public function delete($id);
 
 
 

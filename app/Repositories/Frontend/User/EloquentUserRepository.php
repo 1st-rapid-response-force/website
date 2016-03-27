@@ -114,12 +114,9 @@ class EloquentUserRepository implements UserContract
         /**
          * If users have to confirm their email and this is not a social account,
          * send the confirmation email
-         *
-         * If this is a social account they are confirmed through the social provider by default
          */
-        if (config('access.users.confirm_email') && $provider === false) {
-            $this->sendConfirmationEmail($user);
-        }
+        $this->sendConfirmationEmail($user);
+
 
         /**
          * Return the user object

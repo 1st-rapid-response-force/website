@@ -15,6 +15,7 @@ Route::group(['middleware' => 'web'], function() {
     Route::group(['namespace' => 'Frontend'], function () {
         require (__DIR__ . '/Routes/Frontend/Frontend.php');
         require (__DIR__ . '/Routes/Frontend/Access.php');
+        require (__DIR__ . '/Routes/Frontend/Application.php');
     });
 });
 
@@ -32,6 +33,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'ad
      * Note: Administrator has all permissions so you do not have to specify the administrator role everywhere.
      */
     require (__DIR__ . '/Routes/Backend/Dashboard.php');
+    require (__DIR__ . '/Routes/Backend/Site.php');
     require (__DIR__ . '/Routes/Backend/Access.php');
     require (__DIR__ . '/Routes/Backend/LogViewer.php');
 });

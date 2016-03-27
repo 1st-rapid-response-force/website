@@ -52,6 +52,7 @@ class EloquentSteamRepository implements SteamContract
             return true;
         }
         $user->steam->arma3 = false;
+        $user->steam->arma3_expansion = false;
         $user->push();
         return false;
     }

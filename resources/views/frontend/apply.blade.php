@@ -17,7 +17,7 @@
                     <li>
                         Members must own a legal copy of ARMA 3 and expansions.
                         @if(\Auth::check())
-                            @if($eligible->contains('arma3'))
+                            @if($eligible->contains('no_arma3'))
                                 <span class="label label-danger"><i class="fa fa-ban"></i> - You have not purchased ARMA 3 with this account.</span>
                             @elseif($eligible->contains('owns_arma3'))
                                 <span class="label label-success"><i class="fa fa-check"></i> - You own ARMA 3 with this account.</span>
@@ -27,7 +27,7 @@
                     <li>
                         Members must have a clean Steam VAC and BattlEye Record
                         @if(\Auth::check())
-                            @if($eligible->contains('vac_ban'))
+                            @if($eligible->contains('has_vac_ban'))
                                 <span class="label label-danger"><i class="fa fa-ban"></i> - You have been VAC banned and are ineligible to apply to this unit.</span>
                             @elseif($eligible->contains('no_vac_ban'))
                                 <span class="label label-success"><i class="fa fa-check"></i> - Your account has not been banned.</span>
